@@ -1,0 +1,26 @@
+{
+  "name": "authorisation-middleware",
+  "version": "1.0.0",
+  "description": "Authorisation project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KMiOpenBlockchain/authorisation-middleware.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/KMiOpenBlockchain/authorisation-middleware/issues"
+  },
+  "homepage": "https://github.com/KMiOpenBlockchain/authorisation-middleware#readme",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "express": "^4.17.1",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  }
+}
