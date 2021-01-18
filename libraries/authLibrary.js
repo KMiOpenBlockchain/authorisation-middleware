@@ -1,42 +1,21 @@
 // Authorization Rules Middleware
 // authLibrary.js
 
-const checkAuthorisation = (req, res, next, permissions) => {
-  const authHeader = req.headers.authorization
+const checkAuthorisation = (req, res, next) => {
+  const role = req.body.response_data.user.roles;
+  const passedRoles = ["recruiter"];
 
-  if (!authHeader) {
-    return res.status(403).json({
-      status: 403,
-      message: 'FORBIDDEN'
-    })
-  } else {
-    const token = req.body["response_data"]["token"];
-
-    if (token) {
-      return verifyTokenAndGetUID(token)
-        .then((userId) => {
-        // ------------------------------------
-        // HI I'M THE UPDATED CODE BLOCK, LOOK AT ME
-        // ------------------------------------
-          res.locals.auth = {
-            userId
-          }
-          next()
-        })
-        .catch((err) => {
-          logger.logError(err)
-
-          return res.status(401).json({
-            status: 401,
-            message: 'UNAUTHORIZED'
-          })
-        })
-    } else {
-      return res.status(403).json({
-        status: 403,
-        message: 'FORBIDDEN'
-      })
+  for ( var roleIndex=0; roleIndex< role.length; roleIndex++){
+    if (passedRoles.includes(role[roleIndex])){
+      next();
+      return;
     }
   }
+
+  return res.status(401).json({
+    status: 401,
+    message: 'UNAUTHORIZED'
+  });
 }
+
 exports.checkAuthorisation = checkAuthorisation
