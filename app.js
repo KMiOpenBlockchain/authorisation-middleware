@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/', indexRouter);
 
-module.exports = app;
+
+module.exports.app = app;
 
 app.listen(8010);
