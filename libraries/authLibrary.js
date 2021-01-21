@@ -13,13 +13,22 @@ function arrayToLowerCase (data) {
 }
 
 const checkAuthorisation = (req, res, next, permissions) => {
-  var tokenFromJson = req.body.response_data.token.split(' ')[1];
-  var token = jwt.decode(tokenFromJson);
-
-  if (!jwt.verify(tokenFromJson, cfg.secret)){
+  if (!req.headers.authorization){
     return res.status(401).json({
       status: 401,
-      message: 'UNAUTHORISED'
+      message: 'UNAUTHORISED, Wrong header'
+    });
+  }
+
+  var tokenFromHeaders = req.headers.authorization.split(' ')[1];
+  var token = jwt.decode(tokenFromHeaders);
+
+  try{
+    jwt.verify(tokenFromHeaders, cfg.secret);
+  } catch (error) {
+    return res.status(401).json({
+      status: 401,
+      message: 'UNAUTHORISED, does not verify'
     });
   }
 
@@ -34,7 +43,7 @@ const checkAuthorisation = (req, res, next, permissions) => {
 
   return res.status(401).json({
     status: 401,
-    message: 'UNAUTHORIZED'
+    message: 'UNAUTHORIZED, no permission'
   });
 }
 
