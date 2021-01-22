@@ -1,19 +1,21 @@
 // Authorization Rules Middleware
 // authLibrary.js
-require('../config.js');
+if (!cfg) {
+  require('../config.js');
+}
 
 var jwt = require('jsonwebtoken');
 
-function arrayToLowerCase (data) {
+function arrayToLowerCase(data) {
   var result = [];
-  for ( var index = 0; index< data.length; index++){
+  for (var index = 0; index < data.length; index++) {
     result.push(data[index].toLowerCase());
   }
   return result;
 }
 
 const checkAuthorisation = (req, res, next, permissions) => {
-  if (!req.headers.authorization){
+  if (!req.headers.authorization) {
     return res.status(401).json({
       status: 401,
       message: 'UNAUTHORISED, Wrong header'
@@ -23,7 +25,7 @@ const checkAuthorisation = (req, res, next, permissions) => {
   var tokenFromHeaders = req.headers.authorization.split(' ')[1];
   var token = jwt.decode(tokenFromHeaders);
 
-  try{
+  try {
     jwt.verify(tokenFromHeaders, cfg.authorisation.secret);
   } catch (error) {
     return res.status(401).json({
@@ -33,10 +35,10 @@ const checkAuthorisation = (req, res, next, permissions) => {
   }
 
   var tokenRoles = arrayToLowerCase(token.roles);
-  const passedRoles = permissions.roles ? arrayToLowerCase(permissions.roles) : [] ;
-  const intersection = passedRoles.filter(value=>tokenRoles.includes(value));
+  const passedRoles = permissions.roles ? arrayToLowerCase(permissions.roles) : [];
+  const intersection = passedRoles.filter(value => tokenRoles.includes(value));
 
-  if (intersection.length > 0){
+  if (intersection.length > 0) {
     next();
     return;
   }
