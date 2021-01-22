@@ -24,7 +24,7 @@ const checkAuthorisation = (req, res, next, permissions) => {
   var token = jwt.decode(tokenFromHeaders);
 
   try{
-    jwt.verify(tokenFromHeaders, cfg.secret);
+    jwt.verify(tokenFromHeaders, cfg.authorisation.secret);
   } catch (error) {
     return res.status(401).json({
       status: 401,
