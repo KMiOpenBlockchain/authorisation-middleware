@@ -1,6 +1,6 @@
 // Authorization Rules Middleware
 // authLibrary.js
-if (!cfg) {
+if (typeof cfg ==='undefined') {
   require('../config.js');
 }
 
