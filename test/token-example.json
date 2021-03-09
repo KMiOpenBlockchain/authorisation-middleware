@@ -1,15 +1,15 @@
 {
     "response_data": {
-        "token": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmQxMDQzMjRlMDI1NGYwNGU1ZDcxZjciLCJpZCI6MSwibmFtZSI6InBhbmFnaW90aXMgcGFuYWdpb3RpcyIsImVtYWlsIjoiZXhhbXBsZTFAZ21haWwuY29tIiwicmVtYWluaW5nX2F0dGVtcHRzIjozLCJyb2xlcyI6WyJyZWNydWl0ZXIiXSwidXNlclBhdGgiOiIvaG9tZS9wYW5hZ2lvdGlzIiwiaWF0IjoxNjEwNDU1NjMwLCJleHAiOjE2NDI3Nzk5NTR9.7Sw1q7RB38Khq03jN6DWEqsJrnY8UcdVpGBIrqD4KFI",
-        "user": {
-            "id": 1,
-            "email": "example1@gmail.com",
-            "name": "panagiotis panagiotis",
-            "roles": [
+        "token":"bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjhiMzFlMGNmZTBkMjJmMjczMjMzYTMiLCJpZCI6MTksIm5hbWUiOiJNaXF1ZWwgUmVjcnVpdGVyIiwiZW1haWwiOiJib2JAcXVhbGljaGFpbi5jb20iLCJyZW1haW5pbmdfYXR0ZW1wdHMiOjMsInJvbGVzIjpbInJlY3J1aXRlciJdLCJ1c2VyUGF0aCI6Ii9ob21lL1JlY3J1aXRlciIsImlhdCI6MTYxNDc4Njg4MywiZXhwIjoxNjE0ODczMjgzLCJqdGkiOiIzNjQ2NTgxMjU3NDgyMzUzIn0.MAz60nrV0d48e5A4OiVCRoS1EKDQtlnmziCCd6TlepZ0TeWs9hpmhuHpz3nLnj2v7m3RuIH4Q0E9HO_W4rt5MEu0aRzfwKt93fXkA-XsIytGz-qlvNMbUwiv9HW30IvtXR3HgC-xzcX27q7ByGZBOBv6uD1sfRPwTWpPV1aHmzjkeISEti3AT9mLIvwxbWdh8dyzUoG2Sz-mmPP6v4N5XfC949aWY-RByJUsD7teBmFG9wyozb2dFC1PZCHd2j0ZAqeCNAehlvNECEzTcH0_aa3ujnFwPcGjgBo9_VoM84_cXVqzSBkEw09qjHNU9_enDCrfOpxIzzMn7V6pFdCP3ZRD4X0oipk5SEQ7GUicpOVLaKAxUMg8Q0tGHDu6wyRIEM_f2mDfxN1NhKjf1AbycMjLZDKMJ4AP_9YBByGZyPU9PEI73u5bk6_8pj9MO2_pkWxIm3_uCktORSbfwEIr9Z-eQ0MmzOtRc8k97nVLQ7IoAof8gPaSDNpKh08BQT3ZY-ZVGjbL6X0JuNhBVPERtvaRV-yz8uXpw9DKCbjiMqvrbLZj8Mpy4xokHplHNuv15kzi_OG222xI1q_vUH4Y6jOnlNNkvOGvzmqRmpfUoZC-jew6WE6gQ6x_axTP-cZBY5rCv-U4W18x0l_IPc5K30VEaLD7PmMkzO1D8c0NSlI",
+        "user":{
+            "id":19,
+            "email":"bob@qualichain.com",
+            "name":"Miquel Recruiter",
+            "roles":[
                 "recruiter"
             ]
         }
     },
-    "succeeded": true,
-    "message": "Logged in"
+    "succeeded":true,
+    "message":"Logged in"
 }

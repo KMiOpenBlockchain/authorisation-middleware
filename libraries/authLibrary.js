@@ -1,5 +1,7 @@
 // Authorization Rules Middleware
 // authLibrary.js
+
+var sqlite3=require('sqlite3');
 if (typeof cfg ==='undefined') {
   require('../config.js');
 }
@@ -12,6 +14,17 @@ function arrayToLowerCase(data) {
     result.push(data[index].toLowerCase());
   }
   return result;
+}
+
+function possiblyCreateDatabase() {
+}
+
+function replayFieldIsInDataBase(connection, replayField) {
+  return false;
+}
+
+function addReplayFieldToDataBase(replayField) {
+
 }
 
 const checkAuthorisation = (req, res, next, permissions) => {
@@ -27,6 +40,17 @@ const checkAuthorisation = (req, res, next, permissions) => {
 
   try {
     jwt.verify(tokenFromHeaders, cfg.authorisation.secret);
+
+    var conenction = possiblyCreateDatabase();
+    if (!replayFieldIsInDataBase(connection, token.replayField)){
+      addReplayFieldToDataBase(connection, token.replayField)
+    } else {
+      return res.status(401).json({
+        status: 401,
+        message: 'UNAUTHORISED, trying to reuse token'
+      });
+    }
+
   } catch (error) {
     return res.status(401).json({
       status: 401,
