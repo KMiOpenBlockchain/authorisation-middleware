@@ -1,6 +1,6 @@
 // Authorization Rules Middleware
 // authLibrary.js
-if (typeof cfg ==='undefined') {
+if (typeof cfg === 'undefined') {
   require('../config.js');
 }
 
@@ -16,7 +16,7 @@ function arrayToLowerCase(data) {
 
 const checkAuthorisation = (req, res, next, permissions) => {
   if (!req.headers.authorization) {
-    return res.status(401).json({
+    res.status(401).json({
       status: 401,
       message: 'UNAUTHORISED, Wrong header'
     });
@@ -28,7 +28,7 @@ const checkAuthorisation = (req, res, next, permissions) => {
   try {
     jwt.verify(tokenFromHeaders, cfg.authorisation.secret);
   } catch (error) {
-    return res.status(401).json({
+    res.status(401).json({
       status: 401,
       message: 'UNAUTHORISED, does not verify'
     });
@@ -43,7 +43,7 @@ const checkAuthorisation = (req, res, next, permissions) => {
     return;
   }
 
-  return res.status(401).json({
+  res.status(401).json({
     status: 401,
     message: 'UNAUTHORIZED, no permission'
   });
