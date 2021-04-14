@@ -43,9 +43,9 @@ const checkAuthorisation = (req, res, next, permissions) => {
     return;
   }
 
-  res.status(401).json({
-    status: 401,
-    message: 'UNAUTHORIZED, no permission'
+  res.status(403).json({
+    status: 403,
+    message: 'FORBIDDEN, no permission'
   });
 }
 
